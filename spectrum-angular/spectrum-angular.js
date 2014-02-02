@@ -122,7 +122,7 @@ angular.module('spectrum', [])
           initialized = true;
           $timeout(function() {
             options.color = ngModel.$viewValue || '';
-            $log.debug('Initializing spectrum with options:', options);
+            $log.info('Initializing spectrum with options:', options);
             span.spectrum(options);
             setTimeout(function() {
               span.spectrum('reflow');

@@ -1,6 +1,11 @@
+// Spectrum Angular v1.0
+// https://github.com/ispringer/spectrum-angular
+// Author: Ian Springer
+// License: Apache 2.0
+
 angular.module('spectrum', [])
 
-  .factory('$spectrumHelper', function($log) {
+  .factory('$spectrumHelper', function($window, $log) {
     function initOptions(scope, element, attrs, ngModel, defaultOptions) {
       var options = angular.extend(defaultOptions, scope.$eval(attrs.options));
 
@@ -22,14 +27,14 @@ angular.module('spectrum', [])
     function updateModelValue(scope, controller, tinyColor) {
       scope.$apply(function() {
         var color = tinyColor.toString();
-        $log.debug('Changing $scope.color to [' + color + ']...');
+        $log.info('Setting $scope.color to [' + color + ']...');
         controller.$setViewValue(color);
       });
     }
 
     function updateViewValue(controller, element) {
       var color = controller.$viewValue || '';
-      $log.debug('Setting spectrum color to [' + color + ']...');
+      $log.info('Setting spectrum color to [' + color + ']...');
       if (isSpectrumInitialized(element)) {
         element.spectrum('set', color);
       }
@@ -46,7 +51,7 @@ angular.module('spectrum', [])
       
       isSpectrumInitialized: isSpectrumInitialized,
       
-      logError: (console.error || $log.error)
+      logError: ($window.console.error || $window.console.log)
     };
   })
 
@@ -67,7 +72,7 @@ angular.module('spectrum', [])
         return;
       }
       
-      $log.debug('Initializing spectrum with options:', options);
+      $log.info('Initializing spectrum with options:', options);
       element.spectrum(options);
       
       scope.$watch('ngModel', function(newVal) {

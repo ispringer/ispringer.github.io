@@ -1,7 +1,10 @@
-// Spectrum Angular v1.0
-// https://github.com/ispringer/spectrum-angular
-// Author: Ian Springer
-// License: Apache 2.0
+/*!
+ * Spectrum Angular v1.0
+ * https://github.com/ispringer/spectrum-angular
+ *
+ * Copyright 2014, Ian Springer
+ * Released under the Apache License, version 2.0
+ */
 
 angular.module('spectrum', [])
 

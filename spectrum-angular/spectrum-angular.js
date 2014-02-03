@@ -123,7 +123,7 @@ angular.module('spectrum', [])
   }
 
   return {
-    restrict: 'A',
+    restrict: 'EA',
     scope: {
       ngModel: '=',
       options: '@'

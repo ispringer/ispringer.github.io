@@ -102,14 +102,9 @@ angular.module('spectrum', [])
   }
 
   function initFlatSpectrumIfParentVisible(element, ngModel, options) {
-    if (element.parent().is(':visible')) {
-      $timeout(function() {
-        var input = element.find('input');
-        initSpectrum(ngModel, input, options);
-        setTimeout(function() {
-          input.spectrum('reflow');
-        }, 2000);
-      });
+    if (element.parent().is(':visible')) {  
+      var input = element.find('input');
+      initSpectrum(ngModel, input, options);      
       return true;
     } else {
       return false;
@@ -120,6 +115,7 @@ angular.module('spectrum', [])
     options.color = ngModel.$viewValue || '';
     console.log('Initializing spectrum with options:', options);
     input.spectrum(options);
+    input.spectrum('reflow'); 
   }
 
   return {

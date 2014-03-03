@@ -1,5 +1,5 @@
 /*!
- * Spectrum Angular v0.9
+ * Spectrum Angular v0.9.1
  * https://github.com/ispringer/spectrum-angular
  *
  * Copyright 2014, Ian Springer
